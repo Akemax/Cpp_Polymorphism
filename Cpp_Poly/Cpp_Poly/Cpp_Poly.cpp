@@ -6,6 +6,7 @@ class Shape
 {
 public:
 	virtual double Area() = 0;
+	virtual double Perimeter() = 0;
 	double GetBase() 
 	{
 		return base;
@@ -39,6 +40,10 @@ public:
 	{
 		return base * height / 2;
 	}
+	double Perimeter()
+	{
+		return 3 * base;
+	}
 };
 
 class Rectangle : public Shape 
@@ -53,6 +58,10 @@ public:
 	{
 		return base * height;
 	}
+	double Perimeter()
+	{
+		return 4 * base;
+	}
 };
 
 
@@ -63,4 +72,6 @@ int main()
 	cout << t.Area() << endl;
 	Rectangle r(4, 4);
 	cout << r.Area() << endl;
+	cout << t.Perimeter() << endl;
+	cout << r.Perimeter() << endl;
 }
