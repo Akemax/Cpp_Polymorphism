@@ -63,7 +63,29 @@ public:
 		return 4 * base;
 	}
 };
+#include <iostream>
+using namespace std;
 
+class Student
+{
+public:
+	Student(string n, int id)
+	{
+		name = n;
+		student_id = id;
+	}
+	static bool CompareStudents(Student X, Student Y)
+	{
+		if (X.name == Y.name && X.student_id == Y.student_id)
+		{
+			return true;
+		}
+		return false;
+	}
+private:
+	string name;
+	int student_id;
+};
 
 
 int main()
@@ -74,4 +96,14 @@ int main()
 	cout << r.Area() << endl;
 	cout << t.Perimeter() << endl;
 	cout << r.Perimeter() << endl;
+
+
+	Student andy("Andy Ace", 123456);
+	Student anderson("Anderson Ace", 123456);
+	Student ace("Andy Ace", 123456);
+	Student andrew("Andy Ace", 234567);
+	cout << boolalpha;
+	cout << Student::CompareStudents(andy, anderson) << endl;
+	cout << Student::CompareStudents(andy, ace) << endl;
+	cout << Student::CompareStudents(andy, andrew) << endl;
 }
